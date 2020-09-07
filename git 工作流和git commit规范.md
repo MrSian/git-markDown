@@ -28,7 +28,7 @@ master->pre-production->production
 <body>
 <BLANK LINE>
 <footer>
-复制代码
+
 ```
 
 ```
@@ -50,7 +50,7 @@ perf[优化]: 优化相关，比如提升性能、体验
 test[测试]: 测试用例，包括单元测试、集成测试等
 chore[工具]: 改变构建流程、或者增加依赖库、工具等
 revert[回滚]: 回滚到上一个版本
-复制代码
+
 ```
 
 #### 示例：
@@ -62,7 +62,7 @@ revert[回滚]: 回滚到上一个版本
 文档:修改README,增加了使用说明
 优化:首页图片加载缓慢优化
 重构:对头像功能进行封装重构
-复制代码
+
 ```
 
 ### Git 标签打包规范
@@ -87,18 +87,18 @@ Tag 命名规范：
 - 准备 commitlint/cli 用于格式校验
 - 准备 husky 用于 git 提交代码时触发校验
 
-1.      全局安装commitlint/cli
+1.       全局安装commitlint/cli
 
 ```
 npm install -g @commitlint/cli @commitlint/config-conventional
-复制代码
+
 ```
 
 2.在项目根目录创建配置文件 commitlint.config.js，可以使用以下命令创建
 
 ```
 echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
-复制代码
+
 ```
 
 3.在配置文件中定义提交规范，可使用以下配置：
@@ -116,14 +116,14 @@ module.exports = {
     'subject-case': [0, 'never']
   }
 };
-复制代码
+
 ```
 
 4.项目添加 husky，进行 git 提交触发校验，安装如下：
 
 ```
 npm install husky --save-dev
-复制代码
+
 ```
 
 5.安装完成后在 package.json 中配置如下信息
@@ -137,7 +137,7 @@ npm install husky --save-dev
       "path": "cz-customizable"
     }
  },
-复制代码
+
 ```
 
 6.经过以上步骤，git commit 的规范校验已经完成。可以进行代码提交了。
@@ -150,7 +150,7 @@ npm install husky --save-dev
 ✖   type may not be empty [type-empty]
 
 规范提交>git commit -m "feat: 添加新功能"
-复制代码
+
 ```
 
 ### 汉化与自定义校验规则
@@ -159,7 +159,7 @@ npm install husky --save-dev
 
 ```
 npm install commitlint-config-cz --save-dev
-复制代码
+
 ```
 
 2.commitlint 校验规则配置添加如下设置：
@@ -170,7 +170,7 @@ module.exports = {
     'cz'
   ]
 };
-复制代码
+
 ```
 
 3.下载官方配置文件进行修改。[官方配置文件 cz-config-EXAMPLE.js](https://github.com/leonardoanalista/cz-customizable/blob/master/cz-config-EXAMPLE.js)。修改示例如下：
@@ -230,7 +230,7 @@ module.exports = {
   subjectLimit: 100
 
 };
-复制代码
+
 ```
 
 ### 生成 changelog
@@ -240,21 +240,21 @@ module.exports = {
 ```
 npm install -g conventional-changelog-cli
 npm install -g cz-conventional-changelog
-复制代码
+
 ```
 
 2.项目根目录下添加 `.czrc` 配置文件,文件内容如下
 
 ```
 { "path": "cz-conventional-changelog" }
-复制代码
+
 ```
 
 3.在 package.json 中的 scripts 项增加如下指令
 
 ```
 "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
-复制代码
+
 ```
 
 4.执行 npm run version 即可在当前目录生成 changelog 日志了。
